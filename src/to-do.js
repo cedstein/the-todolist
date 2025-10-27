@@ -1,4 +1,4 @@
-export class toDo {
+export class ToDo {
   text;
 
   constructor(text) {
