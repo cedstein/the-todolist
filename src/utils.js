@@ -7,15 +7,29 @@ export const createHtml = (myToDoList) => {
     console.log(todo);
 
     const li = document.createElement("li");
-
     li.className = "toDo";
-    li.innerHTML = todo.text;
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = todo.done;
+
+    if (todo.done) {
+    }
     li.addEventListener("click", () => {
-      myToDoList.splice(i, 1);
+      todo.done = !todo.done;
       createHtml(myToDoList);
       localStorage.setItem("ToDo", JSON.stringify(myToDoList));
     });
 
+    const span = document.createElement("span");
+    /* span.className = "marked"; */
+    span.innerHTML = todo.text;
+    if (todo.done) {
+      span.className = "done";
+    }
+
+    li.appendChild(checkbox);
+    li.appendChild(span);
     ulElement.appendChild(li);
   });
 };
