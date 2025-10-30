@@ -6,16 +6,13 @@ import { createHtml } from "./utils";
 // import "../scss/styles.scss";
 const handleSubmit = (e) => {
   e.preventDefault();
-  const newToDo = new ToDo("text");
+  const text = document.getElementById("to-do").value;
+  const newToDo = new ToDo(text);
   myToDoList.push(newToDo);
   createHtml(myToDoList);
 };
 
-const myToDoList = [
-  new ToDo("Koda mer"),
-  new ToDo("Lära mig mer om Javascript"),
-  new ToDo("Lära mig mer om ramverk"),
-];
+let myToDoList = [];
 
 const form = document.getElementById("toDoForm");
 if (form !== null) {
@@ -24,12 +21,16 @@ if (form !== null) {
 
 /* let toDoes []; */
 
-/* const toDoesFromLS = localStorage.getItem("ToDo");
-if (toDoesFromLs === null) {
-  toDoes = myToDoList;
+const toDoesFromLS = localStorage.getItem("ToDo");
+if (!toDoesFromLS) {
+  myToDoList = [
+    new ToDo("Koda mer"),
+    new ToDo("Lära mig mer om Javascript"),
+    new ToDo("Lära mig mer om ramverk"),
+  ];
 } else {
-  toDoes = JSON.parse(toDoesFromLS);
-} */
+  myToDoList = JSON.parse(toDoesFromLS);
+}
 
 /* createHtml(toDoes); */
 createHtml(myToDoList);
