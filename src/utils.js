@@ -13,6 +13,7 @@ export const createHtml = (myToDoList) => {
     li.addEventListener("click", () => {
       myToDoList.splice(i, 1);
       createHtml(myToDoList);
+      localStorage.setItem("ToDo", JSON.stringify(myToDoList));
     });
 
     ulElement.appendChild(li);

@@ -10,6 +10,7 @@ const handleSubmit = (e) => {
   const newToDo = new ToDo(text);
   myToDoList.push(newToDo);
   createHtml(myToDoList);
+  localStorage.setItem("ToDo", JSON.stringify(myToDoList));
 };
 
 let myToDoList = [];
@@ -19,17 +20,15 @@ if (form !== null) {
   form.addEventListener("submit", handleSubmit);
 }
 
-/* let toDoes []; */
-
-const toDoesFromLS = localStorage.getItem("ToDo");
-if (!toDoesFromLS) {
+const toDoFromLS = localStorage.getItem("ToDo");
+if (!toDoFromLS) {
   myToDoList = [
     new ToDo("Koda mer"),
     new ToDo("Lära mig mer om Javascript"),
     new ToDo("Lära mig mer om ramverk"),
   ];
 } else {
-  myToDoList = JSON.parse(toDoesFromLS);
+  myToDoList = JSON.parse(toDoFromLS);
 }
 
 /* createHtml(toDoes); */

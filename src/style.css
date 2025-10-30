@@ -92,7 +92,7 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: black;
+    background-color: rgb(236, 229, 229);
     color: white;
     cursor: pointer;
   }
