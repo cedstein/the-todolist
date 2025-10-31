@@ -27,7 +27,7 @@ export const createHtml = (myToDoList) => {
     span.class = "text-break";
     span.innerHTML = todo.text;
     if (todo.done) {
-      span.className = "done";
+      span.classList.add("done");
     }
 
     const deleteBtn = document.createElement("button");

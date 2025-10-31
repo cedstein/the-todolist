@@ -96,37 +96,57 @@ button:focus-visible {
     color: white;
     cursor: pointer;
     
+    
   }
 
   * {
   box-sizing: border-box;
   }
-
-  /* body {
-    background-color: rgba(126, 3, 81, 0.735);
+ /*  body {
+    overflow-x: hidden;
   } */
+
+  #to-do {
+    font-style: italic;
+  }
+
+  #myButton { 
+    margin-left: 2rem;
+    border-radius: 20px;
+  }
+
+  #sortBtn {
+    margin-top: 2rem;
+    border-radius: 20px;
+  }
+
   .done {
     text-decoration-line: line-through; 
-    /* color: red; */
+    color: gray;
   }
 
   .toDo {
     display: grid;
-    grid-template-columns: auto 1fr auto; 
+    grid-template-columns: auto minmax(0, 1fr) auto;  
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     max-width: 100%;
+    padding: 0.5rem 1rem;
+    word-wrap: break-word;
 
   }
+  
   .text-break {
-    word-break: break-word; /* så långa ord bryts istället för att spränga layouten */
-    flex: 1; /* gör att texten fyller ut men håller sig inom raden */
+    min-width: 0;             /* Tvingar texten att inte expandera grid-kolumnen */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    
+}
+  
+  .todo-checkbox {
+    margin: 0;
   }
-
-  /* .todo-checkbox:checked {
-  background-color: green;
-  border-color: green;
-  /* position: relative; */
 
   ul {
     list-style: none;
@@ -138,13 +158,15 @@ button:focus-visible {
   li {
     padding: 2 rem;
     text-align: left;
+    font-weight: bold;
   }
 
   #addlist {
-    border: 3px solid rgb(126, 5, 46);
+    border: 3px solid rgb(240, 41, 107);
     border-radius: 20px;
     padding: 2rem;
     max-width: 100%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }
 
