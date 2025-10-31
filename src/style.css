@@ -146,6 +146,7 @@ button:focus-visible {
   
   .todo-checkbox {
     margin: 0;
+    cursor: pointer;
   }
 
   ul {
