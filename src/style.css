@@ -86,7 +86,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: hsl(0, 4%, 5%);
   }
   a:hover {
     color: #747bff;
@@ -95,17 +95,39 @@ button:focus-visible {
     background-color: rgb(236, 229, 229);
     color: white;
     cursor: pointer;
+    
   }
 
-
-}
+  /* body {
+  background-color: rgba(126, 3, 81, 0.735);
+} */
 .done {
-  color: red;
+  text-decoration-line: line-through; 
+  /* color: red; */
 }
-
+/* .todo-checkbox:checked {
+  background-color: green;
+  border-color: green;
+  position: relative;
+}
+ */
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
+li {
+  padding: 2 rem;
+  text-align: left;
+}
+
+#addlist {
+  border: 3px solid rgb(126, 5, 46);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+}
+
 

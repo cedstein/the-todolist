@@ -2,8 +2,6 @@ import "./style.css";
 import { ToDo } from "./to-do";
 import { createHtml } from "./utils";
 
-// Import our custom CSS
-// import "../scss/styles.scss";
 const handleSubmit = (e) => {
   e.preventDefault();
   const text = document.getElementById("to-do").value;
@@ -31,5 +29,17 @@ if (!toDoFromLS) {
   myToDoList = JSON.parse(toDoFromLS);
 }
 
-/* createHtml(toDoes); */
 createHtml(myToDoList);
+
+// done / undone
+const sortDoneBtn = document.getElementById("sortBtn");
+
+if (sortDoneBtn) {
+  sortDoneBtn.addEventListener("click", () => {
+    myToDoList.sort((b, a) => a.done - b.done);
+
+    // Rita om listan och spara
+    createHtml(myToDoList);
+    localStorage.setItem("ToDo", JSON.stringify(myToDoList));
+  });
+}

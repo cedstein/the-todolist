@@ -12,6 +12,8 @@ export const createHtml = (myToDoList) => {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.done;
+    /* checkbox.className = "marked"; */
+    checkbox.classList.add("todo-checkbox");
 
     if (todo.done) {
     }
@@ -22,14 +24,25 @@ export const createHtml = (myToDoList) => {
     });
 
     const span = document.createElement("span");
-    /* span.className = "marked"; */
+    span.class = "fst-italic";
     span.innerHTML = todo.text;
     if (todo.done) {
       span.className = "done";
     }
 
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = '<i class="bi bi-trash"></i>';
+    deleteBtn.className = "btn btn-sm btn-outline-warning  ms-3";
+    deleteBtn.addEventListener("click", () => {
+      // Ta bort just det här elementet
+      myToDoList.splice(i, 1);
+      localStorage.setItem("ToDo", JSON.stringify(myToDoList));
+      createHtml(myToDoList);
+    });
+
     li.appendChild(checkbox);
     li.appendChild(span);
+    li.appendChild(deleteBtn);
     ulElement.appendChild(li);
   });
 };
