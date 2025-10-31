@@ -3,12 +3,27 @@ import { ToDo } from "./to-do";
 import { createHtml } from "./utils";
 
 const handleSubmit = (e) => {
-  e.preventDefault();
+  /* sparar den dolda texten för eget syfte*/
+
+  /*  e.preventDefault();
   const text = document.getElementById("to-do").value;
   const newToDo = new ToDo(text);
   myToDoList.push(newToDo);
   createHtml(myToDoList);
+  localStorage.setItem("ToDo", JSON.stringify(myToDoList)); */
+
+  e.preventDefault();
+  const input = document.getElementById("to-do");
+  const text = input.value.trim();
+
+  if (text === "") return;
+
+  const newToDo = new ToDo(text);
+  myToDoList.push(newToDo);
+  createHtml(myToDoList);
   localStorage.setItem("ToDo", JSON.stringify(myToDoList));
+
+  input.value = "";
 };
 
 let myToDoList = [];
@@ -38,7 +53,6 @@ if (sortDoneBtn) {
   sortDoneBtn.addEventListener("click", () => {
     myToDoList.sort((b, a) => a.done - b.done);
 
-    // Rita om listan och spara
     createHtml(myToDoList);
     localStorage.setItem("ToDo", JSON.stringify(myToDoList));
   });

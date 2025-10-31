@@ -98,36 +98,53 @@ button:focus-visible {
     
   }
 
+  * {
+  box-sizing: border-box;
+  }
+
   /* body {
-  background-color: rgba(126, 3, 81, 0.735);
-} */
-.done {
-  text-decoration-line: line-through; 
-  /* color: red; */
-}
-/* .todo-checkbox:checked {
+    background-color: rgba(126, 3, 81, 0.735);
+  } */
+  .done {
+    text-decoration-line: line-through; 
+    /* color: red; */
+  }
+
+  .toDo {
+    display: grid;
+    grid-template-columns: auto 1fr auto; 
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+
+  }
+  .text-break {
+    word-break: break-word; /* så långa ord bryts istället för att spränga layouten */
+    flex: 1; /* gör att texten fyller ut men håller sig inom raden */
+  }
+
+  /* .todo-checkbox:checked {
   background-color: green;
   border-color: green;
-  position: relative;
-}
- */
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  /* position: relative; */
 
-li {
-  padding: 2 rem;
-  text-align: left;
-}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+  }
 
-#addlist {
-  border: 3px solid rgb(126, 5, 46);
-  border-radius: 20px;
-  padding: 2rem;
-}
+  li {
+    padding: 2 rem;
+    text-align: left;
+  }
 
+  #addlist {
+    border: 3px solid rgb(126, 5, 46);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 100%;
+  }
 }
-
 

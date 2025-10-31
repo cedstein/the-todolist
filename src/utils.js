@@ -13,7 +13,7 @@ export const createHtml = (myToDoList) => {
     checkbox.type = "checkbox";
     checkbox.checked = todo.done;
     /* checkbox.className = "marked"; */
-    checkbox.classList.add("todo-checkbox");
+    checkbox.className = "todo-checkbox";
 
     if (todo.done) {
     }
@@ -24,7 +24,7 @@ export const createHtml = (myToDoList) => {
     });
 
     const span = document.createElement("span");
-    span.class = "fst-italic";
+    span.class = "text-break";
     span.innerHTML = todo.text;
     if (todo.done) {
       span.className = "done";
