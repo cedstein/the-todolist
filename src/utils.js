@@ -19,8 +19,8 @@ export const createHtml = (myToDoList) => {
     }
     li.addEventListener("click", () => {
       todo.done = !todo.done;
-      createHtml(myToDoList);
       localStorage.setItem("ToDo", JSON.stringify(myToDoList));
+      createHtml(myToDoList);
     });
 
     const span = document.createElement("span");
